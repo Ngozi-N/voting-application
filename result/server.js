@@ -10,7 +10,7 @@ var port = process.env.PORT || 4000;
 
 io.on('connection', function (socket) {
 
-  socket.emit('message', { text : 'Welcome!' });
+  socket.emit('message', { text : 'Welcome! How are you today?' });
 
   socket.on('subscribe', function (data) {
     socket.join(data.channel);

@@ -1,112 +1,153 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Poppins:400,600');
 
-*{
-  box-sizing:border-box;
-}
-html,body{
-  margin:0;
-  padding:0;
-  height:100%;
-  font-family: 'Open Sans';
-}
-body{
-  opacity:0;
-  transition: all 1s linear;
+* {
+  box-sizing: border-box;
 }
 
-.divider{
-  height: 150px;
-  width:2px;
-  background-color: #C0C9CE;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', 'Open Sans', sans-serif;
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+  transition: background 0.5s ease-in-out;
+}
+
+body {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#background-stats {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#background-stats div {
+  transition: width 400ms ease-in-out;
+  display: inline-block;
+  margin-bottom: -4px;
+  width: 50%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+#background-stats-1 {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+#background-stats-2 {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+}
+
+#content-container {
+  z-index: 2;
   position: relative;
-  top: 50%;
-  float: left;
-  transform: translateY(-50%);
+  margin: 0 auto;
+  display: table;
+  padding: 10px;
+  max-width: 940px;
+  height: 100%;
 }
 
-#background-stats-1{
-  background-color: #2196f3;
+#content-container-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 
-#background-stats-2{
-  background-color: #00cbca;
+#choice {
+  transition: all 300ms linear;
+  background: #ffffffdd;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  font-size: 40px;
+  font-weight: 600;
+  width: 480px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0 30px;
+  backdrop-filter: blur(6px);
 }
 
-#content-container{
-  z-index:2;
-  position:relative;
-  margin:0 auto;
-  display:table;
-  padding:10px;
-  max-width:940px;
-  height:100%;
+#choice .choice {
+  width: 48%;
+  text-align: left;
+  padding-left: 10px;
 }
-#content-container-center{
-  display:table-cell;
-  text-align:center;
-  vertical-align:middle;
+
+#choice .choice .label {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  color: #555;
 }
-#result{
+
+#choice .choice .stat {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #111;
+}
+
+#choice .choice.cats {
+  color: #2575fc;
+}
+
+#choice .choice.dogs {
+  color: #ee0979;
+  text-align: right;
+}
+
+.divider {
+  height: 150px;
+  width: 3px;
+  background: linear-gradient(to bottom, #d0d0d0, #ffffff);
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+#result {
   z-index: 3;
   position: absolute;
   bottom: 40px;
   right: 20px;
-  color: #fff;
-  opacity: 0.5;
-  font-size: 45px;
+  color: #ffffff;
+  font-size: 40px;
   font-weight: 600;
-}
-#choice{
-  transition: all 300ms linear;
-  line-height:1.3em;
-  background:#fff;
-  box-shadow: 10px 0 0 #fff, -10px 0 0 #fff;
-  vertical-align:middle;
-  font-size:40px;
-  font-weight: 600;
-  width: 450px;
-  height: 200px;
-}
-#choice a{
-  text-decoration:none;
-}
-#choice a:hover, #choice a:focus{
-  outline:0;
-  text-decoration:underline;
+  opacity: 0.8;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-#choice .choice{
-  width: 49%;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: left;
-  padding-left: 50px;
-}
+@media screen and (max-width: 600px) {
+  #choice {
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    padding: 20px;
+    gap: 20px;
+  }
 
-#choice .choice .label{
-  text-transform: uppercase;
-}
+  .divider {
+    height: 2px;
+    width: 90%;
+    margin: 10px auto;
+  }
 
-#choice .choice.dogs{
-  color: #00cbca;
-  float: right;
-}
-
-#choice .choice.cats{
-  color: #2196f3;
-  float: left;
-}
-#background-stats{
-  z-index:1;
-  height:100%;
-  width:100%;
-  position:absolute;
-}
-#background-stats div{
-  transition: width 400ms ease-in-out;
-  display:inline-block;
-  margin-bottom:-4px;
-  width:50%;
-  height:100%;
+  #result {
+    font-size: 28px;
+    bottom: 20px;
+  }
 }
